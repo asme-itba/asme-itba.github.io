@@ -9,7 +9,7 @@
 
     <title>ASME - visitas</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/album/">
+    <link rel="canonical" href="https://asme-itba.github.io {{- .FileProjectPath -}}">
 
     <!-- Bootstrap core CSS -->
     <link href="/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -17,7 +17,6 @@
     <!-- Custom styles for this template -->
     <link href="/dist/css/gallery.css" rel="stylesheet">
 </head>
-
 
 <header>
     <div class="navbar navbar-dark bg-dark box-shadow">
@@ -29,11 +28,8 @@
                     <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
                     <circle cx="12" cy="13" r="4"></circle>
                 </svg>
-                <strong>Visita al hangar Aerolineas Argentinas </strong> &raquo; (bajo construcción)
+                <strong>{{.Title}}</strong>
             </a>
-            <!--        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                     <span class="navbar-toggler-icon"></span>
-                   </button> -->
         </div>
     </div>
 </header>
@@ -41,18 +37,17 @@
 <main role="main">
     <div class="album py-5 bg-light">
         <div class="container">
-
             <div class="row">
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <a href="/assets/logo/logo_t.png">
-                            <img class="card-img" src="/assets/logo/logo_t.png" alt="Foto de visita">
-                        </a>
+                {{range .Photos}}
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <a href="{{.ProjectPath}}">
+                                <img class="card-img" src="{{.ProjectPath}}" alt="{{.UiName}}">
+                            </a>
+                        </div>
                     </div>
-                </div>
+                {{end}}
             </div>
-        </div>
-    </div>
 
 </main>
 
