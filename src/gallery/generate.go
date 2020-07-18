@@ -13,37 +13,38 @@ import (
 var carpetasDeFotos = []string{
 	"Visita-Luchetti",
 	"Talleres-Matlab",
-	}
+}
 
 const (
 	relProjectPath = "../../"
-	subsiteDir  = "/gallery/"
-	photoDir    = "/gallery/photos/"
+	subsiteDir     = "/gallery/"
+	photoDir       = "/gallery/photos/"
 )
+
 type photo struct {
-	name string
-	UiName string
+	name        string
+	UiName      string
 	ProjectPath string
 }
 type album struct {
-	Title      string
-	Photos []photo
+	Title           string
+	Photos          []photo
 	FileProjectPath string
-	relPath string
+	relPath         string
 }
 
 func main() {
 	for _, carpeta := range carpetasDeFotos {
-		album,err := genAlbum(filepath.Join(relProjectPath,photoDir,carpeta))
+		album, err := genAlbum(filepath.Join(relProjectPath, photoDir, carpeta))
 		tplAlbum, err := template.New("gallery").Parse(file2str("tplAlbum.html"))
 		if err != nil {
 			panic(err)
 		}
-		f, err := os.Create(filepath.Join(relProjectPath,subsiteDir,album.getFilename()))
+		f, err := os.Create(filepath.Join(relProjectPath, subsiteDir, album.getFilename()))
 		if err != nil {
 			panic(err)
 		}
-		err = tplAlbum.Execute(f,album)
+		err = tplAlbum.Execute(f, album)
 		if err != nil {
 			panic(err)
 		}
@@ -53,7 +54,6 @@ func main() {
 const (
 	bufsize = 1 << 8
 )
-
 
 func file2str(filename string) (content string) {
 	f, err := os.Open(filename)
@@ -73,9 +73,9 @@ func file2str(filename string) (content string) {
 	return content
 }
 
-func (a *album)getFilename() string {
-	aux := strings.ReplaceAll(a.Title," - ","-")
-	return strings.ReplaceAll(strings.ToLower(aux)," ","-") + ".html"
+func (a *album) getFilename() string {
+	aux := strings.ReplaceAll(a.Title, " - ", "-")
+	return strings.ReplaceAll(strings.ToLower(aux), " ", "-") + ".html"
 }
 func genAlbum(albumPath string) (*album, error) {
 	var theAlbum album
@@ -92,9 +92,9 @@ func genAlbum(albumPath string) (*album, error) {
 			continue
 		}
 		relativePath := filepath.Join(albumPath, p.name)
-		p.ProjectPath =  strings.ReplaceAll(string(filepath.Separator) +localToProjectPath(relativePath),string(filepath.Separator),"/")
+		p.ProjectPath = strings.ReplaceAll(string(filepath.Separator)+localToProjectPath(relativePath), string(filepath.Separator), "/")
 		p.setUiName()
-		theAlbum.Photos = append(theAlbum.Photos,p)
+		theAlbum.Photos = append(theAlbum.Photos, p)
 	}
 	if len(theAlbum.Photos) == 0 {
 		return &theAlbum, fmt.Errorf("no album pictures found")
@@ -104,20 +104,20 @@ func genAlbum(albumPath string) (*album, error) {
 	return &theAlbum, nil
 }
 
-func (p *photo)setUiName() {
-	p.UiName = strings.ReplaceAll(p.name[:strings.LastIndex(p.name,".")], "_"," ")
+func (p *photo) setUiName() {
+	p.UiName = strings.ReplaceAll(p.name[:strings.LastIndex(p.name, ".")], "_", " ")
 }
 
-func (a *album)setTitle() {
+func (a *album) setTitle() {
 	dir := filepath.Dir(a.Photos[0].ProjectPath)
-	foldername := dir[1+strings.LastIndex(dir[:len(dir)-2],string(filepath.Separator)):]
-	splitHyph := strings.Split(foldername,"-")
-	titleName := strings.Join(splitHyph," - ")
-	a.Title = strings.ReplaceAll(titleName,"_"," ")
+	foldername := dir[1+strings.LastIndex(dir[:len(dir)-2], string(filepath.Separator)):]
+	splitHyph := strings.Split(foldername, "-")
+	titleName := strings.Join(splitHyph, " - ")
+	a.Title = strings.ReplaceAll(titleName, "_", " ")
 }
 
 func localToProjectPath(path string) string {
-	prjpath,err:= filepath.Rel(relProjectPath, path)
+	prjpath, err := filepath.Rel(relProjectPath, path)
 	if err != nil {
 		panic(err)
 	}
