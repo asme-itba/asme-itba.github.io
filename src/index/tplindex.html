@@ -98,10 +98,10 @@
         <div class="row featurette">
             {{range .Index.Tiles}}
                 <div class="col-md-7">
-                    <h2 class="featurette-heading">   {{-  .Headline  -}}
+                    <h2 class="featurette-heading">   {{-  .Headline  }}
                         {{- if ne .SubHeadline "" -}}
                             <span class="text-muted">
-                        {{-  .SubHeadline   -}}
+                        {{  .SubHeadline   -}}
                     </span>
                         {{- end -}}
                     </h2>
