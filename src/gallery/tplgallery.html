@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="ASME ITBA - Patricio Whittingslow 2020">
+    <link rel="icon" href="/assets/favicons/favicon32.png">
+    <title>ASME - ITBA</title>
+    <link href="/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <!-- custom style -->
+    <link href="/dist/css/gallery.css" rel="stylesheet">
+</head>
+
+<header style="padding-bottom: 3rem"> <!-- carousel: ugly fix for spacing -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        {{ range $i, $e := .Gallery.NavBar -}}
+        {{- if eq $i 0 -}}
+        <a class="navbar-brand" href="{{.Href}}"> {{- .Name -}} </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <li class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                {{ else}}{{if .IsDropdown}}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            {{.Name}}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            {{range .SubButtons -}}
+                                <a class="dropdown-item" href="{{.Href}}">{{.Name}}</a>
+                            {{- end}}
+                        </div>
+                    </li>
+                {{ else -}}
+                    <li class="nav-item {{if eq $i 1}}{{print "active"}}{{end}}">
+                        <a class="nav-link" href="   {{- .Href -}}   ">  {{- .Name -}} <span class="sr-only"></span></a>
+                    </li>
+                {{- end -}}
+                {{- end -}}
+                {{- end}}
+            </ul>
+        </li>
+        </div>
+    </nav>
+</header>
+
+
+<main role="main">
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                {{range .Albums -}}
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            {{- range $i, $e := .Photos}}{{ if eq $i 0 -}}
+                                <img class="card-img-top" src="{{.ProjectPath}}" alt="{{.UiName}}">
+                            {{- end}}{{end}}
+                            <div class="card-body">
+                                <p class="card-text">
+                                    {{-  .Description  -}}
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="{{ .FileProjectPath}}">
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">Ver</button>
+                                        </a>
+                                    </div>
+                                    <small class="text-muted">{{   .Title   }}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {{- end}}
+            </div>
+        </div>
+    </div>
+
+</main>
+<!-- FOOTER -->
+<footer class="container">
+    <p class="float-right"><a href="#">Back to top</a></p>
+    <p> 2020 ASME &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/dist/js/jquery.slim.min.js"><\/script>')</script>
+<script src="/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
+</script>
+

@@ -1,0 +1,93 @@
+# Lenguaje YAML para la configuración:
+# https://yaml.org/spec/1.2/spec.html
+---
+RelativeProjectPath: ../
+MainPageURL: &mainURL /index.html
+GalleryFilePath: &galPath /gallery/index.html
+
+# Barra de navegación.
+MainNav: &mainNav
+  - name: ASME
+    href: *mainURL
+  - name: ITBA
+    href: http://itba.edu.ar
+  - name: Actividades
+    isDropdown: true
+    subButtons:
+      - name: Fotos
+        href: *galPath
+
+
+#  - name: droppy
+#    isDropdown: true
+#    subButtons:
+#      - name: Fotos
+#        href: /about/team.html
+#      - name: otro boton
+#        href: https://google.com
+
+# INDEX / MAIN PAGE
+Index:
+  navBar: *mainNav # hace referencia a MainNav
+  carousel: # headline type array
+    - headline: Charlas de expertos en la industria.
+      content: Satellogic, Airbus y Skyloom. Que se está haciendo en la industria aeroespacial hoy.
+      linkText: Inscripción
+      href: https://docs.google.com/forms/d/1oPK58oammFwDClQTNZBr64_BLWTXFc4XL5GCy3mpGQM
+      photoURL:
+      photoAlt:
+#    - headline: Shocker
+#      content: Something Happened
+#      linkText: Act Quickly
+#      href:
+#      photoURL:
+#      photoAlt:
+  tiles: # headline type array
+    - headline: Una organización estudiantil
+      subHeadline: en ITBA.
+      content:
+        ASME (American Society of Mechanical Engineers)
+        promueve la ciencia, práctica y el arte de ingeniería multidisciplinaria en todo el mundo.
+      photoURL: /assets/team/asmeaction.png
+      photoAlt: Miembros de ASME participando de una feria de capítulos estudiantiles
+  templatePath: src/index/tplindex.html
+
+# TEAM PAGE
+Team:
+  navBar: *mainNav
+  members:
+    - name: Sebastián D'hers
+      description: Asesor
+      photoURL:
+    - name: Nahuel Letang
+      description: Presidente
+      photoURL:
+    - name: Patricio Whittingslow
+      description: Vicepresidente. Diseño web
+      linkText: LinkedIn
+      linkURL: https://www.linkedin.com/in/patricio-whittingslow-3b9564140/
+      photoURL:
+      email: pwhittingslow@itba.edu.ar
+
+  templatePath: src/about/tplteam.html
+TeamFilePath: /about/team.html
+
+# GALLERY AND PHOTO ALBUMS
+PhotoAlbumPath: /gallery/photos/ # Aca estan las carpetas con las fotos
+AlbumTemplatePath: /src/gallery/tplAlbum.html
+Gallery:
+  path:  /gallery/ # aca se guardan los archivos html generados que van a constituir el sitio
+  navBar: *mainNav
+  templatePath: /src/gallery/tplgallery.html
+  title: Fotos
+
+Albums:
+  - folder: Talleres-Matlab
+    title: Taller Matlab
+    description: Talleres de Matlab 2017-2019
+    exclude: []
+  - folder: Visita-Luchetti
+    title: Visita a la Planta Luchetti
+    description: Visita a la planta de Molinos (Luchetti)
+    exclude: []
+
