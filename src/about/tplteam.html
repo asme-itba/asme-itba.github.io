@@ -59,8 +59,12 @@
                          style="object-fit: cover" alt="Foto del equipo.">
                     <h2>{{.Name}}</h2>
                     <p>{{.Description}}</p>
-                    <p><a class="btn btn-secondary" href="{{.LinkURL}}"
-                          role="button">{{.LinkText}} &raquo;</a></p>
+                    <p>{{if ne .LinkURL "" -}}
+                        <a class="btn btn-secondary" href="{{.LinkURL}}"
+                          role="button">{{.LinkText}} &raquo;</a>
+                        {{else -}}
+                        {{- end -}}
+                    </p>
                 </div><!-- /.col-lg-4 -->
             {{end}}
         </div><!-- /.row -->
