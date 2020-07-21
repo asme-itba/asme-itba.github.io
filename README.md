@@ -24,7 +24,7 @@ you should see (the version may be higher):
     go get -u github.com/asme-itba/asme-itba.github.io/src
      ```
 5. edit [`generate.yaml`](src/generate.yaml)
-    to add changes you wish to see in site
+    to add changes you wish to see in site. Add picture folders to /gallery/photos/\*foldername\*
 6. **Run generator**. Open command prompt in 
    /src/ folder and run the generator with 
     ```
