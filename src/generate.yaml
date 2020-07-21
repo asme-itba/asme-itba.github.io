@@ -85,9 +85,7 @@ Albums:
   - folder: Talleres-Matlab
     title: Taller Matlab
     description: Talleres de Matlab 2017-2019
-    exclude: []
   - folder: Visita-Luchetti
     title: Visita a la Planta Luchetti
     description: Visita a la planta de Molinos (Luchetti)
-    exclude: []
 
