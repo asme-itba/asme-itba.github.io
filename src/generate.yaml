@@ -32,8 +32,8 @@ Index:
   carousel: # headline type array. La altura nominal de fotos será 555px
     - headline: Charlas de expertos en la industria.
       content: Satellogic, Airbus y Skyloom. Que se está haciendo en la industria aeroespacial hoy.
-      linkText: Inscripción
-      href: https://docs.google.com/forms/d/1oPK58oammFwDClQTNZBr64_BLWTXFc4XL5GCy3mpGQM
+    #  linkText: Inscripción
+    # href: https://docs.google.com/forms/d/1oPK58oammFwDClQTNZBr64_BLWTXFc4XL5GCy3mpGQM
       photoURL: https://images7.alphacoders.com/831/thumb-1920-831842.jpg
       photoAlt: Foto del espacio
 #    - headline: Shocker
@@ -88,4 +88,5 @@ Albums:
   - folder: Visita-Luchetti
     title: Visita a la Planta Luchetti
     description: Visita a la planta de Molinos (Luchetti)
-
+  - folder: Visita-Aerolineas19
+    title: Visita al hangar de Aerolineas Argentinas 2019
