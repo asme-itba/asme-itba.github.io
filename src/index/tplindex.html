@@ -74,9 +74,9 @@
                         <div class="carousel-caption">
                             <h1>   {{- .Headline -}}    </h1>
                             <p>    {{- .Content  -}}    </p>
-                            <p><a class="btn btn-lg btn-primary"
+                            <p>{{if ne .LinkText ""}}<a class="btn btn-lg btn-primary"
                                   href="{{  .Href  }}"
-                                  role="button">    {{-  .LinkText  -}}    </a></p>
+                                  role="button">    {{-  .LinkText  -}}    </a>{{end}}</p>
                         </div>
                     </div>
                 </div>
