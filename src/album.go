@@ -35,8 +35,9 @@ func (a *album) completeAlbum(albumPath, relativeProjectPath, galleryPath string
 	for _, f := range finfos {
 		var p photo
 		p.name = f.Name()
-		ext := strings.ToLower(p.name[len(p.name)-3:])
-		if ext != "jpg" && ext != "png" {
+		splitsies := strings.Split(p.name,".")
+		ext := strings.ToLower(splitsies[len(splitsies)-1])
+		if ext != "jpg" && ext != "png" && ext != "jpeg" {
 			continue
 		}
 		relativePath := filepath.Join(albumPath, p.name)

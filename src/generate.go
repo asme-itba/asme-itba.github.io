@@ -71,6 +71,7 @@ func main() {
 		fmt.Print(err)
 		os.Exit(1)
 	}
+	fmt.Println("Done building site!")
 }
 
 func run() error {
