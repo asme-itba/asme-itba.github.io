@@ -81,7 +81,8 @@ Team:
     - name: Sebastián D'hers
       description: Asesor
       photoURL: 
-
+      linkText: LinkedIn
+      linkURL: https://www.linkedin.com/in/sebastian-dhers-834b1269/
     # - name: Nahuel Letang
     #   description: Presidente
     #   photoURL:
