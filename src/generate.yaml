@@ -49,23 +49,48 @@ Index:
       photoURL: /assets/team/asmeaction.png
       photoAlt: Miembros de ASME participando de una feria de capítulos estudiantiles
   templatePath: src/index/tplindex.html
-
+# <a href="https://imgbb.com/"><img src="https://i.ibb.co/sVGGLrj/emunoz.jpg" alt="emunoz" border="0"></a>
 # TEAM PAGE
 Team:
   navBar: *mainNav
   members:
+    - name: Esnel Massaro
+      description: Presidente
+      photoURL: https://i.ibb.co/98YsXyV/emassaro.jpg
+
+    - name: Santiago Romero Delfino
+      description: Vicepresidente
+      photoURL: https://i.ibb.co/BPG2tKt/sdelfino.jpg
+
+    - name: Matthew John Lynch
+      description: Tesorero
+      photoURL: https://i.ibb.co/smCLRw3/mlynch.jpg
+
+    - name: Clara Murzabal
+      description: Miembra de junta directiva
+      photoURL: https://i.ibb.co/8xnfNVB/cmurzabal.jpg
+
+    - name: Nico Burger
+      description: Miembro de junta directiva
+      photoURL: https://i.ibb.co/0ZxMFCF/nburger.jpg
+
+    - name: Martín Cruz Verdur
+      description: Miembro de junta directiva
+      photoURL: 
+
     - name: Sebastián D'hers
       description: Asesor
-      photoURL:
-    - name: Nahuel Letang
-      description: Presidente
-      photoURL:
-    - name: Patricio Whittingslow
-      description: Vicepresidente. Diseño web
-      linkText: LinkedIn
-      linkURL: https://www.linkedin.com/in/patricio-whittingslow-3b9564140/
-      photoURL:
-      email: pwhittingslow@itba.edu.ar
+      photoURL: 
+
+    # - name: Nahuel Letang
+    #   description: Presidente
+    #   photoURL:
+    # - name: Patricio Whittingslow
+    #   description: Vicepresidente. Diseño web
+    #   linkText: LinkedIn
+    #   linkURL: https://www.linkedin.com/in/patricio-whittingslow-3b9564140/
+    #   photoURL:
+    #   email: pwhittingslow@itba.edu.ar
 
   templatePath: src/about/tplteam.html
 TeamFilePath: /about/team.html
