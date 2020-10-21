@@ -2,12 +2,14 @@ package main
 
 import (
 	"fmt"
-	"github.com/spf13/viper"
 	"html/template"
 	"os"
 	"path/filepath"
+
+	"github.com/spf13/viper"
 )
 
+// Import packages
 //            <!--  search button     <form class="form-inline mt-2 mt-md-0">
 //                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
 //                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -51,7 +53,7 @@ type config struct {
 		Title        string
 		Filepath     string
 		NavBar       []button
-		Path string
+		Path         string
 	}
 }
 
